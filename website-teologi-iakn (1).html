@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prodi Teologi IAKN – Website Informatif Terpusat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ungu-tua: #4A1F7C;
+    --ungu-muda: #7B4EA6;
+    --putih: #FFFFFF;
+    --abu-muda: #F5F5F5;
+    --emas: #D4AF37;
+    --hitam: #333333;
+    --ungu-sangat-muda: #f0e8ff;
+    --shadow: 0 4px 24px rgba(74,31,124,0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--hitam);
+    background: var(--putih);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ungu-tua);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 68px;
+    box-shadow: 0 2px 16px rgba(74,31,124,0.25);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--emas);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ungu-tua);
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    color: var(--putih);
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .nav-logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 11px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--putih);
+  }
+
+  .nav-cta {
+    background: var(--emas) !important;
+    color: var(--ungu-tua) !important;
+    font-weight: 700 !important;
+    padding: 8px 18px !important;
+    border-radius: 8px !important;
+  }
+
+  .nav-cta:hover {
+    background: #c9a020 !important;
+  }
+
+  /* ── ANNOUNCEMENT BANNER ── */
+  .announcement {
+    background: var(--emas);
+    color: var(--ungu-tua);
+    text-align: center;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .announcement span {
+    background: var(--ungu-tua);
+    color: var(--emas);
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* ── HERO ── */
+  #beranda {
+    background: linear-gradient(135deg, var(--ungu-tua) 0%, #2d0f52 60%, #1a0730 100%);
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 70px 40px;
+  }
+
+  #beranda::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(212,175,55,0.18) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(123,78,166,0.3) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Cross decoration */
+  #beranda::after {
+    content: '✝';
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 260px;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+    font-family: serif;
+    line-height: 1;
+  }
+
+  .hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212,175,55,0.2);
+    border: 1px solid var(--emas);
+    color: var(--emas);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--putih);
+    line-height: 1.18;
+    margin-bottom: 10px;
+  }
+
+  .hero-title em {
+    color: var(--emas);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 500px;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--emas);
+    color: var(--ungu-tua);
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #c9a020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--putih);
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    transition: all 0.25s;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--putih);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── STATS ── */
+  .stats-bar {
+    background: var(--putih);
+    border-bottom: 1px solid #e8e0f0;
+    padding: 28px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    box-shadow: var(--shadow);
+  }
+
+  .stat-item {
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 40px;
+    background: #e0d5f0;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ungu-tua);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 72px 40px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--ungu-muda);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--hitam);
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: #666;
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .divider {
+    width: 52px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ungu-tua), var(--emas));
+    margin: 16px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── BERITA ── */
+  #berita {
+    background: var(--abu-muda);
+  }
+
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .berita-card {
+    background: var(--putih);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(74,31,124,0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .berita-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(74,31,124,0.18);
+  }
+
+  .berita-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+  }
+
+  .berita-img.bg1 { background: linear-gradient(135deg, #4A1F7C, #7B4EA6); }
+  .berita-img.bg2 { background: linear-gradient(135deg, #2d0f52, #4A1F7C); }
+  .berita-img.bg3 { background: linear-gradient(135deg, #7B4EA6, #9b6fc7); }
+
+  .berita-body {
+    padding: 22px;
+  }
+
+  .berita-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ungu-muda);
+    margin-bottom: 8px;
+  }
+
+  .berita-judul {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--hitam);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .berita-tanggal {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .berita-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ungu-tua);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--ungu-tua);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  /* ── TENTANG ── */
+  #tentang {
+    background: var(--putih);
+  }
+
+  .tentang-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .tentang-visual {
+    background: linear-gradient(135deg, var(--ungu-tua), var(--ungu-muda));
+    border-radius: 20px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+  }
+
+  .tentang-visual::before {
+    content: '✝';
+    position: absolute;
+    font-size: 200px;
+    color: rgba(255,255,255,0.07);
+    line-height: 1;
+  }
+
+  .tentang-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--putih);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tentang-visual p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .akreditasi-badge {
+    background: var(--emas);
+    color: var(--ungu-tua);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    margin-top: 8px;
+  }
+
+  .tentang-content {}
+
+  .visi-misi-card {
+    background: var(--ungu-sangat-muda);
+    border-left: 4px solid var(--ungu-tua);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+
+  .visi-misi-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ungu-muda);
+    margin-bottom: 8px;
+  }
+
+  .visi-misi-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--hitam);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .tentang-points {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .tentang-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0e8ff;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .tentang-points li::before {
+    content: '✝';
+    color: var(--emas);
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── AKADEMIK ── */
+  #akademik {
+    background: var(--abu-muda);
+  }
+
+  .akademik-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .akademik-card {
+    background: var(--putih);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 2px 12px rgba(74,31,124,0.07);
+    transition: all 0.3s;
+    cursor: pointer;
+    border-top: 4px solid var(--ungu-tua);
+  }
+
+  .akademik-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(74,31,124,0.15);
+    border-top-color: var(--emas);
+  }
+
+  .akademik-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  .akademik-judul {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--hitam);
+    margin-bottom: 10px;
+  }
+
+  .akademik-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ── DOSEN ── */
+  #dosen {
+    background: var(--putih);
+  }
+
+  .dosen-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .dosen-card {
+    background: var(--putih);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(74,31,124,0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+  }
+
+  .dosen-card:hover {
+    border-color: var(--ungu-muda);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(74,31,124,0.18);
+  }
+
+  .dosen-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--putih);
+  }
+
+  .dosen-avatar.c1 { background: linear-gradient(135deg, #4A1F7C, #7B4EA6); }
+  .dosen-avatar.c2 { background: linear-gradient(135deg, #2d0f52, #4A1F7C); }
+  .dosen-avatar.c3 { background: linear-gradient(135deg, #7B4EA6, #9b6fc7); }
+  .dosen-avatar.c4 { background: linear-gradient(135deg, #3d1a65, #6b3e9a); }
+
+  .dosen-nama {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--hitam);
+    margin-bottom: 5px;
+  }
+
+  .dosen-jabatan {
+    font-size: 12px;
+    color: var(--ungu-muda);
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .dosen-keahlian {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .dosen-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--ungu-tua);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── PMB ── */
+  #pmb {
+    background: linear-gradient(135deg, var(--ungu-tua) 0%, #2d0f52 100%);
+    color: var(--putih);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #pmb::before {
+    content: '✝';
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    font-size: 300px;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+
+  #pmb .section-title { color: var(--putih); }
+  #pmb .section-desc { color: rgba(255,255,255,0.75); }
+  #pmb .section-tag { color: var(--emas); }
+
+  .pmb-steps {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .pmb-steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: rgba(212,175,55,0.4);
+    z-index: 0;
+  }
+
+  .pmb-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+  }
+
+  .step-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--emas);
+    color: var(--ungu-tua);
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-family: 'Playfair Display', serif;
+    box-shadow: 0 4px 16px rgba(212,175,55,0.4);
+  }
+
+  .step-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--putih);
+    line-height: 1.4;
+  }
+
+  .pmb-info-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .pmb-info-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .pmb-info-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .pmb-info-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--putih); margin-bottom: 8px; }
+  .pmb-info-card p { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.6; }
+
+  .pmb-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* ── DOWNLOAD CENTER ── */
+  #download {
+    background: var(--abu-muda);
+  }
+
+  .download-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .download-item {
+    background: var(--putih);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(74,31,124,0.07);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .download-item:hover {
+    box-shadow: 0 6px 20px rgba(74,31,124,0.15);
+    transform: translateX(4px);
+  }
+
+  .dl-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .dl-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--ungu-sangat-muda);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .dl-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--hitam);
+    margin-bottom: 3px;
+  }
+
+  .dl-meta {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .dl-btn {
+    background: var(--ungu-tua);
+    color: var(--putih);
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dl-btn:hover { background: var(--ungu-muda); }
+
+  /* ── FAQ ── */
+  #faq {
+    background: var(--putih);
+  }
+
+  .faq-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border: 1.5px solid #e8e0f0;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .faq-item.active {
+    border-color: var(--ungu-muda);
+    box-shadow: 0 4px 16px rgba(74,31,124,0.1);
+  }
+
+  .faq-q {
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--hitam);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .faq-item.active .faq-q {
+    background: var(--ungu-sangat-muda);
+    color: var(--ungu-tua);
+  }
+
+  .faq-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ungu-tua);
+    color: var(--putih);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.active .faq-arrow { transform: rotate(180deg); background: var(--emas); color: var(--ungu-tua); }
+
+  .faq-a {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.75;
+  }
+
+  .faq-item.active .faq-a {
+    max-height: 200px;
+    padding: 0 24px 20px;
+  }
+
+  /* ── GALERI ── */
+  #galeri {
+    background: var(--abu-muda);
+  }
+
+  .galeri-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 16px;
+  }
+
+  .galeri-item {
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    transition: transform 0.3s;
+  }
+
+  .galeri-item:hover { transform: scale(1.03); }
+  .galeri-item:nth-child(1) { grid-column: span 2; background: linear-gradient(135deg, #4A1F7C, #7B4EA6); }
+  .galeri-item:nth-child(2) { background: linear-gradient(135deg, #2d0f52, #4A1F7C); }
+  .galeri-item:nth-child(3) { background: linear-gradient(135deg, #7B4EA6, #9b6fc7); }
+  .galeri-item:nth-child(4) { background: linear-gradient(135deg, #3d1a65, #6b3e9a); }
+  .galeri-item:nth-child(5) { grid-column: span 2; background: linear-gradient(135deg, #1a0730, #4A1F7C); }
+
+  .galeri-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74,31,124,0.6);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .galeri-item:hover .galeri-overlay { opacity: 1; }
+
+  .galeri-label {
+    color: var(--putih);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* ── KONTAK ── */
+  #kontak {
+    background: var(--putih);
+  }
+
+  .kontak-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 52px;
+  }
+
+  .kontak-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--hitam);
+    margin-bottom: 20px;
+  }
+
+  .kontak-info-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .kontak-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--ungu-sangat-muda);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .kontak-info-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ungu-tua);
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  .kontak-info-text span {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .kontak-form input,
+  .kontak-form textarea {
+    width: 100%;
+    border: 1.5px solid #e0d5f0;
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: var(--hitam);
+    background: var(--putih);
+  }
+
+  .kontak-form input:focus,
+  .kontak-form textarea:focus {
+    border-color: var(--ungu-muda);
+  }
+
+  .kontak-form textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  /* ── ALUMNI ── */
+  #alumni {
+    background: var(--ungu-sangat-muda);
+  }
+
+  .alumni-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .alumni-card {
+    background: var(--putih);
+    border-radius: 16px;
+    padding: 30px 24px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(74,31,124,0.08);
+    transition: all 0.3s;
+  }
+
+  .alumni-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(74,31,124,0.15);
+  }
+
+  .alumni-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--putih);
+  }
+
+  .alumni-photo.a1 { background: linear-gradient(135deg, #4A1F7C, #7B4EA6); }
+  .alumni-photo.a2 { background: linear-gradient(135deg, #2d0f52, #4A1F7C); }
+  .alumni-photo.a3 { background: linear-gradient(135deg, #7B4EA6, #9b6fc7); }
+
+  .alumni-nama {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--hitam);
+    margin-bottom: 4px;
+  }
+
+  .alumni-jabatan {
+    font-size: 13px;
+    color: var(--ungu-muda);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .alumni-tahun {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 14px;
+  }
+
+  .alumni-quote {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.65;
+    font-style: italic;
+    position: relative;
+    padding: 0 10px;
+  }
+
+  .alumni-quote::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: var(--ungu-tua);
+    opacity: 0.2;
+    line-height: 0;
+    vertical-align: -14px;
+    margin-right: 4px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ungu-tua);
+    color: var(--putih);
+    padding: 52px 40px 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--putih);
+    margin-bottom: 12px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .social-btn:hover { background: var(--emas); }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--emas);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--emas); }
+
+  .footer-contact-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+
+  .footer-contact-item span:first-child {
+    font-size: 15px;
+    margin-top: 1px;
+  }
+
+  .footer-contact-item span:last-child {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-bottom .cross {
+    font-size: 18px;
+    color: var(--emas);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    #beranda { padding: 50px 20px; }
+    .hero-title { font-size: 34px; }
+    .stats-bar { gap: 24px; flex-wrap: wrap; padding: 20px; }
+    section { padding: 52px 20px; }
+    .berita-grid, .dosen-grid, .alumni-grid { grid-template-columns: 1fr; }
+    .tentang-wrapper, .kontak-wrapper { grid-template-columns: 1fr; }
+    .akademik-grid, .pmb-info-grid { grid-template-columns: 1fr; }
+    .pmb-steps { grid-template-columns: repeat(3,1fr); }
+    .galeri-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .galeri-item:nth-child(1), .galeri-item:nth-child(5) { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement">
+  <span>INFO</span>
+  Pendaftaran Mahasiswa Baru (PMB) Tahun Akademik 2026/2027 kini dibuka — <strong>Daftar sekarang sebelum 30 Juni 2026!</strong>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#beranda" class="nav-logo">
+    <div class="nav-logo-icon">✝</div>
+    <div class="nav-logo-text">
+      Prodi Teologi
+      <span>IAKN – Institut Agama Kristen Negeri</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#akademik">Akademik</a></li>
+    <li><a href="#dosen">Dosen</a></li>
+    <li><a href="#alumni">Alumni</a></li>
+    <li><a href="#download">Download</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><a href="#pmb" class="nav-cta">PMB 2026</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="beranda">
+  <div class="hero-content">
+    <div class="hero-badge">✝ Program Studi S1 Teologi</div>
+    <h1 class="hero-title">
+      Membentuk <em>Pemimpin</em><br>Rohani Masa Depan
+    </h1>
+    <p class="hero-subtitle">
+      Program Studi Teologi IAKN hadir untuk mencetak generasi Kristiani yang berintegritas, berwawasan akademis, dan siap melayani masyarakat dengan kasih dan kebenaran.
+    </p>
+    <div class="hero-buttons">
+      <a href="#pmb" class="btn-primary">✉ Daftar Sekarang</a>
+      <a href="#tentang" class="btn-secondary">Pelajari Lebih Lanjut</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">850+</div>
+    <div class="stat-label">Mahasiswa Aktif</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">42</div>
+    <div class="stat-label">Dosen Pengampu</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">2.300+</div>
+    <div class="stat-label">Alumni Tersebar</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">A</div>
+    <div class="stat-label">Akreditasi BAN-PT</div>
+  </div>
+</div>
+
+<!-- BERITA -->
+<section id="berita">
+  <div class="section-header reveal">
+    <div class="section-tag">Terkini</div>
+    <h2 class="section-title">Berita & Pengumuman</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Informasi terbaru seputar kegiatan akademik, kemahasiswaan, dan pengumuman resmi Prodi Teologi IAKN.</p>
+  </div>
+  <div class="berita-grid reveal">
+    <div class="berita-card">
+      <div class="berita-img bg1">⛪</div>
+      <div class="berita-body">
+        <div class="berita-tag">📢 Akademik</div>
+        <div class="berita-judul">Kalender Akademik Semester Ganjil 2026/2027 Telah Diterbitkan</div>
+        <div class="berita-tanggal">📅 5 Mei 2026</div>
+        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+      </div>
+    </div>
+    <div class="berita-card">
+      <div class="berita-img bg2">🎓</div>
+      <div class="berita-body">
+        <div class="berita-tag">🏆 Prestasi</div>
+        <div class="berita-judul">Mahasiswa Teologi IAKN Raih Juara I Olimpiade Biblika Nasional</div>
+        <div class="berita-tanggal">📅 28 April 2026</div>
+        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+      </div>
+    </div>
+    <div class="berita-card">
+      <div class="berita-img bg3">📖</div>
+      <div class="berita-body">
+        <div class="berita-tag">🎤 Seminar</div>
+        <div class="berita-judul">Seminar Nasional: "Teologi Kontekstual di Era Digital" – 20 Mei 2026</div>
+        <div class="berita-tanggal">📅 20 April 2026</div>
+        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="tentang-wrapper">
+    <div class="tentang-visual reveal">
+      <h3>Program Studi Teologi<br>IAKN</h3>
+      <p>Berdiri sejak 1954, Prodi Teologi IAKN telah menjadi salah satu pusat pendidikan teologi terkemuka di Indonesia Timur.</p>
+      <div class="akreditasi-badge">⭐ Akreditasi A – BAN-PT</div>
+    </div>
+    <div class="tentang-content reveal">
+      <div class="section-tag">Tentang Prodi</div>
+      <h2 class="section-title" style="text-align:left; font-size:28px;">Visi & Misi<br>Prodi Teologi IAKN</h2>
+      <div class="divider" style="margin:14px 0;"></div>
+      <div class="visi-misi-card">
+        <div class="visi-misi-label">Visi</div>
+        <div class="visi-misi-text">"Menjadi Program Studi Teologi yang unggul, berkarakter Kristiani, dan relevan dengan kebutuhan jemaat serta masyarakat."</div>
+      </div>
+      <div class="visi-misi-card">
+        <div class="visi-misi-label">Misi</div>
+        <div class="visi-misi-text">"Menyelenggarakan pendidikan teologi yang berkualitas, mengembangkan penelitian, dan melaksanakan pengabdian masyarakat berbasis nilai Kristiani."</div>
+      </div>
+      <ul class="tentang-points">
+        <li>Kurikulum berbasis KKNI yang terintegrasi dengan nilai Kristiani</li>
+        <li>Fasilitas perpustakaan teologi dengan koleksi lebih dari 10.000 judul</li>
+        <li>Kemitraan dengan gereja-gereja di seluruh nusantara</li>
+        <li>Program beasiswa bagi mahasiswa berprestasi dan kurang mampu</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AKADEMIK -->
+<section id="akademik">
+  <div class="section-header reveal">
+    <div class="section-tag">Akademik</div>
+    <h2 class="section-title">Informasi Akademik</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Semua kebutuhan akademik mahasiswa tersedia dalam satu portal yang mudah diakses.</p>
+  </div>
+  <div class="akademik-grid reveal">
+    <div class="akademik-card">
+      <div class="akademik-icon">📚</div>
+      <div class="akademik-judul">Kurikulum Per Semester</div>
+      <div class="akademik-desc">Struktur kurikulum 8 semester dengan 144 SKS mencakup mata kuliah dasar teologi, praktik ministri, dan Bahasa Ibrani/Yunani.</div>
+    </div>
+    <div class="akademik-card">
+      <div class="akademik-icon">📅</div>
+      <div class="akademik-judul">Kalender Akademik</div>
+      <div class="akademik-desc">Jadwal resmi perkuliahan, UTS, UAS, KKL, dan wisuda untuk Tahun Akademik 2026/2027 tersedia untuk diunduh.</div>
+    </div>
+    <div class="akademik-card">
+      <div class="akademik-icon">📋</div>
+      <div class="akademik-judul">Panduan Mahasiswa</div>
+      <div class="akademik-desc">Panduan KRS online, pengajuan skripsi, prosedur cuti, sidang akhir, dan peraturan akademik lengkap tersedia di sini.</div>
+    </div>
+    <div class="akademik-card">
+      <div class="akademik-icon">🕐</div>
+      <div class="akademik-judul">Jadwal Kuliah</div>
+      <div class="akademik-desc">Jadwal perkuliahan per kelas dan per dosen untuk semester berjalan dapat diakses dan diunduh dalam format PDF.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DOSEN -->
+<section id="dosen">
+  <div class="section-header reveal">
+    <div class="section-tag">Tenaga Pengajar</div>
+    <h2 class="section-title">Dosen & Staf</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Tim dosen berpengalaman dengan latar belakang akademik teologi dari universitas terkemuka dalam dan luar negeri.</p>
+  </div>
+  <div class="dosen-grid reveal">
+    <div class="dosen-card">
+      <div class="dosen-avatar c1">DS</div>
+      <div class="dosen-nama">Dr. Daniel Simbolon, M.Th</div>
+      <div class="dosen-jabatan">Ketua Program Studi</div>
+      <div class="dosen-keahlian">Teologi Sistematika</div>
+      <a href="mailto:daniel.simbolon@iakn.ac.id" class="dosen-email">✉ Hubungi</a>
+    </div>
+    <div class="dosen-card">
+      <div class="dosen-avatar c2">MH</div>
+      <div class="dosen-nama">Prof. Maria Hutabarat, Ph.D</div>
+      <div class="dosen-jabatan">Guru Besar</div>
+      <div class="dosen-keahlian">Perjanjian Lama & Biblika</div>
+      <a href="mailto:maria.hutabarat@iakn.ac.id" class="dosen-email">✉ Hubungi</a>
+    </div>
+    <div class="dosen-card">
+      <div class="dosen-avatar c3">YS</div>
+      <div class="dosen-nama">Pdt. Yohannes Sirait, M.Min</div>
+      <div class="dosen-jabatan">Dosen Tetap</div>
+      <div class="dosen-keahlian">Teologi Praktika & Homiletika</div>
+      <a href="mailto:yohannes.sirait@iakn.ac.id" class="dosen-email">✉ Hubungi</a>
+    </div>
+    <div class="dosen-card">
+      <div class="dosen-avatar c4">RL</div>
+      <div class="dosen-nama">Dr. Ruth Lumbantobing, M.Th</div>
+      <div class="dosen-jabatan">Dosen Tetap</div>
+      <div class="dosen-keahlian">Perjanjian Baru & Misiologi</div>
+      <a href="mailto:ruth.lumban@iakn.ac.id" class="dosen-email">✉ Hubungi</a>
+    </div>
+  </div>
+</section>
+
+<!-- PMB -->
+<section id="pmb">
+  <div class="section-header reveal">
+    <div class="section-tag">Penerimaan Mahasiswa Baru</div>
+    <h2 class="section-title">Bergabunglah Bersama Kami</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Daftarkan diri Anda dan mulailah perjalanan iman serta akademik bersama Prodi Teologi IAKN.</p>
+  </div>
+
+  <div class="pmb-steps reveal">
+    <div class="pmb-step">
+      <div class="step-circle">1</div>
+      <div class="step-label">Pendaftaran Online</div>
+    </div>
+    <div class="pmb-step">
+      <div class="step-circle">2</div>
+      <div class="step-label">Verifikasi Berkas</div>
+    </div>
+    <div class="pmb-step">
+      <div class="step-circle">3</div>
+      <div class="step-label">Tes Seleksi</div>
+    </div>
+    <div class="pmb-step">
+      <div class="step-circle">4</div>
+      <div class="step-label">Pengumuman</div>
+    </div>
+    <div class="pmb-step">
+      <div class="step-circle">5</div>
+      <div class="step-label">Daftar Ulang</div>
+    </div>
+  </div>
+
+  <div class="pmb-info-grid reveal">
+    <div class="pmb-info-card">
+      <div class="icon">📋</div>
+      <h4>Persyaratan</h4>
+      <p>Lulusan SMA/sederajat, sehat jasmani rohani, surat rekomendasi gereja, dan pas foto terbaru.</p>
+    </div>
+    <div class="pmb-info-card">
+      <div class="icon">💰</div>
+      <h4>Biaya Kuliah</h4>
+      <p>Uang pangkal Rp 3.500.000 · SPP per semester Rp 2.800.000 · Beasiswa tersedia bagi yang memenuhi syarat.</p>
+    </div>
+    <div class="pmb-info-card">
+      <div class="icon">🎓</div>
+      <h4>Program Beasiswa</h4>
+      <p>Beasiswa prestasi, beasiswa kurang mampu, dan beasiswa kerja sama gereja tersedia untuk mahasiswa baru.</p>
+    </div>
+  </div>
+
+  <div class="pmb-cta reveal">
+    <a href="#kontak" class="btn-primary" style="font-size:15px; padding:16px 40px;">✉ Daftar Online Sekarang</a>
+  </div>
+</section>
+
+<!-- DOWNLOAD CENTER -->
+<section id="download">
+  <div class="section-header reveal">
+    <div class="section-tag">Unduhan</div>
+    <h2 class="section-title">Download Center</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Semua formulir dan dokumen resmi tersedia untuk diunduh kapan saja dan di mana saja.</p>
+  </div>
+  <div class="download-grid reveal">
+    <div class="download-item">
+      <div class="dl-left">
+        <div class="dl-icon">📄</div>
+        <div>
+          <div class="dl-name">Formulir KRS Semester Ganjil 2026/2027</div>
+          <div class="dl-meta">PDF · 245 KB · Diperbarui: 1 Mei 2026</div>
+        </div>
+      </div>
+      <button class="dl-btn">⬇ Unduh</button>
+    </div>
+    <div class="download-item">
+      <div class="dl-left">
+        <div class="dl-icon">📝</div>
+        <div>
+          <div class="dl-name">Pedoman Penulisan Skripsi Edisi 2026</div>
+          <div class="dl-meta">PDF · 1.2 MB · Diperbarui: 15 Maret 2026</div>
+        </div>
+      </div>
+      <button class="dl-btn">⬇ Unduh</button>
+    </div>
+    <div class="download-item">
+      <div class="dl-left">
+        <div class="dl-icon">📋</div>
+        <div>
+          <div class="dl-name">Surat Keterangan Aktif Kuliah</div>
+          <div class="dl-meta">DOCX · 89 KB · Diperbarui: 10 April 2026</div>
+        </div>
+      </div>
+      <button class="dl-btn">⬇ Unduh</button>
+    </div>
+    <div class="download-item">
+      <div class="dl-left">
+        <div class="dl-icon">📘</div>
+        <div>
+          <div class="dl-name">Panduan & Berkas Pendaftaran PMB 2026</div>
+          <div class="dl-meta">PDF · 560 KB · Diperbarui: 1 April 2026</div>
+        </div>
+      </div>
+      <button class="dl-btn">⬇ Unduh</button>
+    </div>
+    <div class="download-item">
+      <div class="dl-left">
+        <div class="dl-icon">🗓</div>
+        <div>
+          <div class="dl-name">Kalender Akademik 2026/2027</div>
+          <div class="dl-meta">PDF · 320 KB · Diperbarui: 28 April 2026</div>
+        </div>
+      </div>
+      <button class="dl-btn">⬇ Unduh</button>
+    </div>
+  </div>
+</section>
+
+<!-- ALUMNI -->
+<section id="alumni">
+  <div class="section-header reveal">
+    <div class="section-tag">Alumni & Karir</div>
+    <h2 class="section-title">Alumni Unggulan</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Lulusan Prodi Teologi IAKN telah berkarya dan berkontribusi di berbagai bidang pelayanan dan profesional.</p>
+  </div>
+  <div class="alumni-grid reveal">
+    <div class="alumni-card">
+      <div class="alumni-photo a1">RH</div>
+      <div class="alumni-nama">Pdt. Reinhard Hutapea</div>
+      <div class="alumni-jabatan">Pendeta Sinode HKBP</div>
+      <div class="alumni-tahun">Angkatan 2010</div>
+      <div class="alumni-quote">IAKN membentuk fondasi iman dan intelektual yang kuat untuk saya melayani jemaat hingga hari ini.</div>
+    </div>
+    <div class="alumni-card">
+      <div class="alumni-photo a2">SN</div>
+      <div class="alumni-nama">Dr. Sarah Nainggolan</div>
+      <div class="alumni-jabatan">Dosen STT Abdi Sabda</div>
+      <div class="alumni-tahun">Angkatan 2008</div>
+      <div class="alumni-quote">Pendidikan di IAKN membekali saya dengan rigor akademik yang membuka jalan ke jenjang doktoral.</div>
+    </div>
+    <div class="alumni-card">
+      <div class="alumni-photo a3">YM</div>
+      <div class="alumni-nama">Yanti Manurung, S.Th</div>
+      <div class="alumni-jabatan">Koordinator LSM Kasih Indonesia</div>
+      <div class="alumni-tahun">Angkatan 2015</div>
+      <div class="alumni-quote">Nilai-nilai pelayanan yang saya pelajari di IAKN menjadi kompas dalam setiap langkah misi sosial saya.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header reveal">
+    <div class="section-tag">Pertanyaan Umum</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Temukan jawaban atas pertanyaan yang paling sering diajukan oleh calon mahasiswa dan mahasiswa aktif.</p>
+  </div>
+  <div class="faq-wrapper reveal">
+    <div class="faq-item active">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        Apa saja syarat pendaftaran masuk Prodi Teologi IAKN?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        Calon mahasiswa harus merupakan lulusan SMA/sederajat, memiliki kondisi jasmani dan rohani yang sehat, melampirkan surat rekomendasi dari gereja asal, serta menyerahkan fotokopi ijazah, KTP, dan pas foto terbaru berukuran 3×4. Seluruh berkas diserahkan saat pendaftaran online atau langsung ke kantor Prodi.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        Berapa lama masa studi di Program Studi Teologi IAKN?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        Masa studi normal adalah 8 semester (4 tahun) dengan total beban studi 144 SKS. Mahasiswa dapat menyelesaikan lebih cepat minimal dalam 7 semester atau maksimal 14 semester sesuai peraturan akademik yang berlaku.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        Apakah tersedia program beasiswa bagi mahasiswa?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        Ya, tersedia beberapa jenis beasiswa: beasiswa prestasi akademik (IPK ≥ 3.50), beasiswa bagi mahasiswa kurang mampu dengan dokumen pendukung, dan beasiswa kerja sama dengan sinode-sinode gereja partner. Informasi lengkap tersedia di bagian PMB atau Bagian Kemahasiswaan.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        Bagaimana prosedur pengajuan judul skripsi?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        Mahasiswa yang telah menyelesaikan minimal 120 SKS dapat mengajukan judul skripsi melalui formulir yang tersedia di Download Center, kemudian diserahkan ke Prodi untuk ditentukan pembimbing. Proses selanjutnya mengacu pada Buku Pedoman Skripsi yang dapat diunduh di halaman Download.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        Apakah website ini dapat diakses melalui smartphone?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        Ya, website Prodi Teologi IAKN dirancang sepenuhnya responsif (Responsive Web Design) sehingga dapat diakses dengan optimal melalui smartphone, tablet, maupun laptop/desktop dengan berbagai ukuran layar.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+  <div class="section-header reveal">
+    <div class="section-tag">Dokumentasi</div>
+    <h2 class="section-title">Galeri Kegiatan</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Momen-momen berharga dalam perjalanan akademik dan pelayanan civitas akademika Prodi Teologi IAKN.</p>
+  </div>
+  <div class="galeri-grid reveal">
+    <div class="galeri-item">
+      🎓
+      <div class="galeri-overlay"><span class="galeri-label">Wisuda Angkatan XXXII</span></div>
+    </div>
+    <div class="galeri-item">
+      ⛪
+      <div class="galeri-overlay"><span class="galeri-label">Ibadah Akademik</span></div>
+    </div>
+    <div class="galeri-item">
+      📖
+      <div class="galeri-overlay"><span class="galeri-label">Seminar Nasional</span></div>
+    </div>
+    <div class="galeri-item">
+      🏕
+      <div class="galeri-overlay"><span class="galeri-label">KKL Medan & Tapanuli</span></div>
+    </div>
+    <div class="galeri-item">
+      🎵
+      <div class="galeri-overlay"><span class="galeri-label">Paduan Suara Teologi</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="section-header reveal">
+    <div class="section-tag">Hubungi Kami</div>
+    <h2 class="section-title">Kontak & Lokasi</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Jangan ragu untuk menghubungi kami. Tim Prodi Teologi IAKN siap membantu Anda.</p>
+  </div>
+  <div class="kontak-wrapper">
+    <div class="kontak-info reveal">
+      <h3>Informasi Kontak</h3>
+      <div class="kontak-info-item">
+        <div class="kontak-icon">📍</div>
+        <div class="kontak-info-text">
+          <strong>Alamat</strong>
+          <span>Jl. Diponegoro No. 4, Pematang Siantar,<br>Sumatera Utara 21141</span>
+        </div>
+      </div>
+      <div class="kontak-info-item">
+        <div class="kontak-icon">📞</div>
+        <div class="kontak-info-text">
+          <strong>Telepon</strong>
+          <span>+62 622 21234 (Senin–Jumat, 08.00–16.00)</span>
+        </div>
+      </div>
+      <div class="kontak-info-item">
+        <div class="kontak-icon">✉</div>
+        <div class="kontak-info-text">
+          <strong>Email Resmi</strong>
+          <span>teologi@iakn.ac.id</span>
+        </div>
+      </div>
+      <div class="kontak-info-item">
+        <div class="kontak-icon">📱</div>
+        <div class="kontak-info-text">
+          <strong>WhatsApp Info PMB</strong>
+          <span>+62 812-3456-7890</span>
+        </div>
+      </div>
+    </div>
+    <div class="kontak-form reveal">
+      <input type="text" placeholder="Nama Lengkap Anda">
+      <input type="email" placeholder="Alamat Email Anda">
+      <input type="text" placeholder="Subjek Pesan">
+      <textarea placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
+      <button class="btn-primary" style="width:100%; font-size:15px; padding:14px;" onclick="alert('Pesan terkirim! Kami akan segera menghubungi Anda.')">Kirim Pesan ✉</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>✝ Prodi Teologi IAKN</h3>
+      <p>Institut Agama Kristen Negeri – mencetak pemimpin rohani yang berintegritas, berpengetahuan luas, dan berhati melayani. Bersama kami, iman dan ilmu berjalan seiring.</p>
+      <div class="footer-socials">
+        <div class="social-btn">📘</div>
+        <div class="social-btn">📸</div>
+        <div class="social-btn">▶</div>
+        <div class="social-btn">🐦</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang Prodi</a></li>
+        <li><a href="#akademik">Akademik</a></li>
+        <li><a href="#dosen">Dosen & Staf</a></li>
+        <li><a href="#alumni">Alumni & Karir</a></li>
+        <li><a href="#pmb">PMB 2026</a></li>
+        <li><a href="#download">Download Center</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <span>Jl. Diponegoro No. 4, Pematang Siantar, Sumatera Utara 21141</span>
+      </div>
+      <div class="footer-contact-item">
+        <span>📞</span>
+        <span>+62 622 21234</span>
+      </div>
+      <div class="footer-contact-item">
+        <span>✉</span>
+        <span>teologi@iakn.ac.id</span>
+      </div>
+      <div class="footer-contact-item">
+        <span>🕐</span>
+        <span>Senin – Jumat: 08.00 – 16.00 WIB</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Program Studi Teologi IAKN. Hak cipta dilindungi undang-undang.</p>
+    <span class="cross">✝</span>
+    <p>Dibuat oleh Kelompok 1 – Prodi Teknologi Informasi IAKN</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ Toggle
+  function toggleFAQ(el) {
+    const item = el.parentElement;
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(i => { if (i !== item) i.classList.remove('active'); });
+    item.classList.toggle('active');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.background = link.getAttribute('href') === '#' + current ? 'rgba(255,255,255,0.15)' : '';
+    });
+  });
+</script>
+</body>
+</html>
